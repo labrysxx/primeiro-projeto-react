@@ -2,6 +2,7 @@ import './Formulario.css'
 import CampoTexto from "../CampoTexto";
 import ListaSuspensa from "../ListaSuspensa";
 import Botao from "../Botao";
+import {useState} from "react";
 
 const Formulario = () => {
 
@@ -23,14 +24,47 @@ const Formulario = () => {
         "Kage"
     ]
 
+    const [nome, setNome] = useState("")
+    const [imagem, setImagem] = useState("")
+    const [aldeia, setAldeia] = useState("")
+    const [nivel, setNivel] = useState("")
+
+    const aoSalvar = (evento) => {
+        evento.preventDefault()
+        console.log('form submetido', nome, imagem)
+    }
+
     return (
         <section className="formulario">
-            <form>
+            <form onSubmit={aoSalvar}>
                 <h2>Preencha os dados para criar o card do ninja</h2>
-                <CampoTexto label="Nome" placeholder="Digite o seu nome" />
-                <ListaSuspensa label="Nivel" itens={niveis} />
-                <CampoTexto label="Imagem" placeholder="Digite o endereço da imagem" />
-                <ListaSuspensa label="Aldeia" itens={aldeias} />
+                <CampoTexto
+                    aoAlterado={valor => setNome(valor)}
+                    valor={nome}
+                    obrigatorio={true}
+                    label="Nome"
+                    placeholder="Digite o nome da(o) ninja"
+                />
+                <ListaSuspensa
+                    aoAlterado={valor => setNivel(valor)}
+                    valor={nivel}
+                    obrigatorio={true}
+                    label="Nivel"
+                    itens={niveis}
+                />
+                <CampoTexto
+                    aoAlterado={valor => setImagem(valor)}
+                    valor={imagem}
+                    obrigatorio={true}
+                    label="Imagem"
+                    placeholder="Digite o endereço da imagem"
+                />
+                <ListaSuspensa
+                    aoAlterado={valor => setAldeia(valor)}
+                    valor={aldeia}
+                    obrigatorio={true}
+                    label="Aldeia"
+                    itens={aldeias} />
                 <Botao>
                     Criar card
                 </Botao>
