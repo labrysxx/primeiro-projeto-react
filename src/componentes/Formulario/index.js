@@ -69,7 +69,7 @@ const Formulario = (props) => {
                     valor={aldeia}
                     obrigatorio={true}
                     label="Aldeia"
-                    itens={aldeias} />
+                    itens={props.aldeias} />
                 <Botao>
                     Criar card
                 </Botao>
