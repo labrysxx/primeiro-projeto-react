@@ -1,9 +1,11 @@
 import "./Ninja.css"
 
 const Ninja = (props) => {
+    const css = { backgroundColor: props.corDeFundo }
+
     return (
         <div className="ninja">
-            <div className="cabecalho">
+            <div className="cabecalho" style={css}>
                 <img src={props.imagem} alt={props.nome}/>
             </div>
             <div className="rodape">

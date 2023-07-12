@@ -6,15 +6,6 @@ import {useState} from "react";
 
 const Formulario = (props) => {
 
-    const aldeias = [
-        "Folha",
-        "Areia",
-        "Névoa",
-        "Nuvem",
-        "Pedra",
-        "Névoa Sangrenta"
-    ]
-
     const niveis = [
         "Jonin",
         "Chunin",
@@ -37,6 +28,10 @@ const Formulario = (props) => {
             imagem,
             aldeia
         })
+        setNome("")
+        setImagem("")
+        setAldeia("")
+        setNivel("")
     }
 
     return (

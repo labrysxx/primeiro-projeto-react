@@ -88,10 +88,9 @@ function App() {
 
     const [ninjas, setNinjas] = useState([])
     const aoNovoNinjaAdicionado = (ninja) => {
+        debugger
         setNinjas([...ninjas, ninja])
     }
-
-    console.log(ninjas)
 
   return (
     <div className="App">
